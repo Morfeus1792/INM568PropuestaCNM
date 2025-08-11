@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Propuesta Integral de Monitoreo y Control - Club Náutico de Maracaibo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        .tab.active {
+            border-color: #3b82f6;
+            color: #3b82f6;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- Header -->
+    <header class="bg-white shadow-md">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-4">
+                <img src="https://doc-08-4o-docs.googleusercontent.com/docs/securesc/s8g5o81k2k5gqj5g8f1qj8f1qj8f1qj8/n5b2o8j2k5gqj8f1qj8f1qj8f1qj8f1/1628522400000/14868359234857924294/14868359234857924294/1B-g2X_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9-d" onerror="this.onerror=null;this.src='https.placehold.co/100x40/000000/ffffff?text=Innotica'" class="h-10">
+                <img src="https://doc-0c-4o-docs.googleusercontent.com/docs/securesc/s8g5o81k2k5gqj5g8f1qj8f1qj8f1qj8/n5b2o8j2k5gqj8f1qj8f1qj8f1qj8f1/1628522400000/14868359234857924294/14868359234857924294/1B-g2X_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9-d" onerror="this.onerror=null;this.src='https.placehold.co/100x40/003366/ffffff?text=Club+Nautico'" class="h-12">
+            </div>
+            <h1 class="text-xl md:text-3xl font-bold text-blue-800 text-right">Propuesta de Monitoreo y Control</h1>
+        </div>
+    </header>
+
+    <main class="container mx-auto p-4 md:p-8">
+
+        <!-- Introduction Section -->
+        <section id="introduction" class="mb-12 bg-white p-6 rounded-lg shadow-lg">
+            <h2 class="text-2xl font-bold text-blue-700 mb-4 border-b-2 border-blue-200 pb-2">Introducción a la Propuesta</h2>
+            <p class="text-lg leading-relaxed">
+                Este documento presenta una propuesta integral para el <strong>monitoreo y control de los sistemas críticos</strong> del Club Náutico de Maracaibo. La implementación de esta solución tecnológica busca optimizar la operación y el mantenimiento, garantizar la continuidad operativa y alinear al club con principios de sostenibilidad. Esto se traduce en beneficios claros como una mejor imagen, mayor eficiencia en la detección de fallas, reducción en tiempos de respuesta y un uso optimizado de recursos como agua y energía.
+            </p>
+        </section>
+
+        <!-- Tabs for Navigation -->
+        <div class="mb-8">
+            <div class="border-b border-gray-200">
+                <nav class="flex flex-wrap -mb-px" aria-label="Tabs">
+                    <button class="tab active whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm" onclick="openTab(event, 'sistemas')">
+                        Sistemas y Escenarios
+                    </button>
+                    <button class="tab whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm text-gray-500 hover:text-gray-700 hover:border-gray-300" onclick="openTab(event, 'calculadora')">
+                        Calculadora de Inversión
+                    </button>
+                     <button class="tab whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm text-gray-500 hover:text-gray-700 hover:border-gray-300" onclick="openTab(event, 'tecnologia')">
+                        Tecnología y Condiciones
+                    </button>
+                </nav>
+            </div>
+        </div>
+
+        <!-- Tab Content: Systems -->
+        <div id="sistemas" class="tab-content active">
+            <!-- System Sections will be dynamically generated here -->
+        </div>
+
+        <!-- Tab Content: Calculator -->
+        <div id="calculadora" class="tab-content">
+            <section class="bg-white p-6 rounded-lg shadow-lg">
+                <h2 class="text-2xl font-bold text-blue-700 mb-2">Calculadora de Inversión Total</h2>
+                <p class="mb-6 text-gray-600">Seleccione un escenario de inversión para cada sistema. El costo total se actualizará automáticamente. Puede omitir sistemas si no desea incluirlos en el cálculo inicial.</p>
+                <div id="calculator-container" class="space-y-6">
+                    <!-- Calculator options will be injected here -->
+                </div>
+                <div class="mt-8 pt-6 border-t-2 border-dashed border-blue-300 bg-blue-50 p-6 rounded-lg text-right">
+                    <span class="text-xl font-medium text-gray-700">Inversión Total Estimada:</span>
+                    <span id="total-cost-display" class="text-3xl font-bold text-blue-800 ml-4">$0.00</span>
+                </div>
+            </section>
+        </div>
+        
+        <!-- Tab Content: Technology and Conditions -->
+        <div id="tecnologia" class="tab-content">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <section id="technology" class="bg-white p-6 rounded-lg shadow-lg">
+                    <h2 class="text-2xl font-bold text-blue-700 mb-4 border-b-2 border-blue-200 pb-2">Tecnologías a Emplear</h2>
+                    <div class="space-y-4">
+                        <p>La solución se basa en <strong>tecnologías abiertas e interoperables</strong> para garantizar flexibilidad y evitar dependencia de un solo proveedor.</p>
+                        <div>
+                            <h3 class="font-semibold text-lg text-blue-600">BACnet (ISO 16484-6)</h3>
+                            <p class="text-gray-600">Un protocolo estándar en la automatización de edificios, ideal para integrar sistemas de climatización y gestión de instalaciones.</p>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-lg text-blue-600">Modbus</h3>
+                            <p class="text-gray-600">Ampliamente adoptado en entornos industriales, permite una comunicación eficiente y estandarizada entre equipos de diferentes fabricantes.</p>
+                        </div>
+                        <div class="bg-blue-50 border-l-4 border-blue-500 p-4 rounded-r-lg">
+                            <h4 class="font-bold">Ventajas de un Sistema Abierto</h4>
+                            <ul class="list-disc list-inside text-sm text-gray-700 mt-2 space-y-1">
+                                <li>Libertad para elegir productos de diferentes fabricantes.</li>
+                                <li>Precios competitivos en instalación y mantenimiento.</li>
+                                <li>Máxima capacidad de integración entre sistemas.</li>
+                                <li>Evita contratos exclusivos y ataduras a un solo proveedor.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+                <section id="conditions" class="bg-white p-6 rounded-lg shadow-lg">
+                    <h2 class="text-2xl font-bold text-blue-700 mb-4 border-b-2 border-blue-200 pb-2">Próximos Pasos y Condiciones</h2>
+                     <div class="space-y-4">
+                        <div>
+                            <h3 class="font-semibold text-lg text-blue-600">Fases del Proyecto</h3>
+                             <ol class="list-decimal list-inside text-gray-600 space-y-1 mt-2">
+                                <li>Ingeniería de detalle.</li>
+                                <li>Construcción de canalizaciones y obras civiles.</li>
+                                <li>Programación de equipos y software.</li>
+                                <li>Instalación y puesta en servicio.</li>
+                                <li>Operación y mantenimiento inicial.</li>
+                            </ol>
+                        </div>
+                         <div>
+                            <h3 class="font-semibold text-lg text-blue-600">Condiciones de Pago</h3>
+                             <ul class="list-disc list-inside text-gray-600 space-y-1 mt-2">
+                                <li><strong>70%</strong> para iniciar la ingeniería y programación.</li>
+                                <li><strong>20%</strong> al tener los equipos en laboratorio.</li>
+                                <li><strong>10%</strong> al culminar la obra.</li>
+                            </ul>
+                        </div>
+                         <div>
+                            <h3 class="font-semibold text-lg text-blue-600">Garantía y Entrega</h3>
+                             <ul class="list-disc list-inside text-gray-600 space-y-1 mt-2">
+                                <li><strong>6 meses</strong> de operación y mantenimiento incluidos.</li>
+                                <li>Plazo de entrega mínimo de <strong>4 meses</strong> desde el pago inicial.</li>
+                                <li>Oferta válida por <strong>30 días</strong> continuos.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Image Modal -->
+    <div id="imageModal" class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center p-4 z-50 hidden" onclick="this.classList.add('hidden')">
+        <img id="modalImage" src="" class="max-w-full max-h-full rounded-lg shadow-2xl">
+    </div>
+
+    <footer class="text-center py-6 bg-white border-t mt-12">
+        <p class="text-gray-500">Propuesta elaborada por Innotica para el Club Náutico de Maracaibo - 09 de agosto de 2025</p>
+    </footer>
+
+    <script>
+        const systemsData = [
+            {
+                id: 'hidroneumatico',
+                title: 'Equipo Hidroneumático Principal',
+                description: 'Solución estratégica para asegurar un suministro de agua constante y fiable, optimizando el consumo energético y previniendo fallas inesperadas en las 2 bombas de 20 HP y los tanques de 100.000 y 70.000 litros.',
+                functionalities: [
+                    'Visualizar estado y consumo de bombas y compresor.',
+                    'Monitorear niveles de presión y agua en tanques.',
+                    'Recibir alarmas por fallas o niveles críticos.',
+                    'Controlar remotamente los equipos (en escenarios de control).',
+                    'Generar reportes históricos de operación.'
+                ],
+                images: [
+                    'https://doc-0c-4o-docs.googleusercontent.com/docs/securesc/s8g5o81k2k5gqj5g8f1qj8f1qj8f1qj8/n5b2o8j2k5gqj8f1qj8f1qj8f1qj8f1/1628522400000/14868359234857924294/14868359234857924294/1B-g2X_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9-d',
+                    'https://doc-04-4o-docs.googleusercontent.com/docs/securesc/s8g5o81k2k5gqj5g8f1qj8f1qj8f1qj8/n5b2o8j2k5gqj8f1qj8f1qj8f1qj8f1/1628522400000/14868359234857924294/14868359234857924294/1B-g2X_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9-d'
+                ],
+                scenarios: [
+                    { name: 'Solo Monitoreo Integral', cost: 8670, details: 'Monitoreo de consumo, temperatura, vibración, presión del sistema, relación agua/aire y nivel en 2 tanques.' },
+                    { name: 'Monitoreo y Control Integral', cost: 11653, details: 'Todo lo del monitoreo integral, más control ON/OFF de bombas/compresor y pantalla táctil de 10".' },
+                    { name: 'Monitoreo de Estado y Presión', cost: 3668, details: 'Monitoreo del consumo eléctrico de motores y la presión de salida del sistema.' },
+                    { name: 'Monitoreo de Presión del Sistema', cost: 2625, details: 'Monitoreo únicamente de la presión resultante del sistema.' },
+                    { name: 'Monitoreo de Nivel de Agua', cost: 2759, details: 'Monitoreo preciso y constante del nivel de agua en los 2 tanques principales.' }
+                ]
+            },
+            {
+                id: 'piscina',
+                title: 'Bombas de Recirculación de Piscina',
+                description: 'Garantiza la calidad del agua y la seguridad de los bañistas en la piscina olímpica, optimizando el consumo energético de las 2 bombas de 10 HP y previniendo fallas mayores.',
+                functionalities: [
+                    'Visualizar estado ON/OFF y consumo eléctrico.',
+                    'Controlar horarios de encendido/apagado (en escenarios de control).',
+                    'Monitorear temperatura de motores para prevenir sobrecalentamiento.',
+                    'Recibir alertas automáticas por fallos.',
+                    'Generar informes de consumo y horas de funcionamiento.'
+                ],
+                images: [
+                    'https://doc-0o-4o-docs.googleusercontent.com/docs/securesc/s8g5o81k2k5gqj5g8f1qj8f1qj8f1qj8/n5b2o8j2k5gqj8f1qj8f1qj8f1qj8f1/1628522400000/14868359234857924294/14868359234857924294/1B-g2X_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_-d',
+                    'https://doc-0s-4o-docs.googleusercontent.com/docs/securesc/s8g5o81k2k5gqj5g8f1qj8f1qj8f1qj8/n5b2o8j2k5gqj8f1qj8f1qj8f1qj8f1/1628522400000/14868359234857924294/14868359234857924294/1B-g2X_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_-d'
+                ],
+                scenarios: [
+                    { name: 'Monitoreo Integral', cost: 3459, details: 'Supervisión completa de variables operativas (corriente y temperatura) sin control remoto.' },
+                    { name: 'Monitoreo y Control con HMI', cost: 6803, details: 'Añade control ON/OFF para las bombas y una pantalla táctil de 10" para gestión local y remota.' },
+                    { name: 'Monitoreo de Consumo', cost: 3472, details: 'Enfoque básico en monitorear el consumo de corriente como indicador de funcionamiento.' }
+                ]
+            },
+            {
+                id: 'climatizacion',
+                title: 'Climatización (Máquina de Expansión Directa)',
+                description: 'Gestión centralizada de los equipos de A/A para optimizar el confort de los socios, controlar costos energéticos y reducir el desgaste prematuro de los equipos.',
+                functionalities: [
+                    'Controlar remotamente el encendido y apagado.',
+                    'Visualizar consumo de compresor y ventilador.',
+                    'Monitorear temperatura y velocidad del aire en ductos.',
+                    'Establecer horarios de funcionamiento automáticos.',
+                    'Recibir alertas por fallos o desviaciones de rendimiento.'
+                ],
+                images: [
+                    'https://doc-04-4o-docs.googleusercontent.com/docs/securesc/s8g5o81k2k5gqj5g8f1qj8f1qj8f1qj8/n5b2o8j2k5gqj8f1qj8f1qj8f1qj8f1/1628522400000/14868359234857924294/14868359234857924294/1B-g2X_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_-d'
+                ],
+                scenarios: [
+                    { name: 'M&C de 1 equipo desde tablero', cost: 3651, details: 'Solución robusta para equipos sin termostato, con controlador en tablero y sensores en ductos.' },
+                    { name: 'M&C con termostato-controlador', cost: 2725, details: 'Ideal para reemplazar termostatos existentes, consolidando control y sensórica en un dispositivo de pared.' },
+                    { name: 'M&C de 5 equipos', cost: 11081, details: 'Gestiona 5 equipos idénticos y cercanos con un controlador modular, optimizando costos por economía de escala.' }
+                ]
+            },
+            {
+                id: 'bombas_general',
+                title: 'Bombas en General',
+                description: 'Solución escalable para unificar el monitoreo y control de la diversidad de sistemas de bombeo del club (agua potable, achique, etc.), permitiendo una gestión de mantenimiento más eficiente.',
+                functionalities: [
+                    'Visualizar estado y consumo de cada bomba.',
+                    'Monitorear temperatura y presión en bombas de superficie.',
+                    'Recibir alertas por consumos anómalos.',
+                    'Generar historial de funcionamiento.',
+                    'Controlar remotamente las bombas incluidas.'
+                ],
+                images: [
+                    'https://doc-0c-4o-docs.googleusercontent.com/docs/securesc/s8g5o81k2k5gqj5g8f1qj8f1qj8f1qj8/n5b2o8j2k5gqj8f1qj8f1qj8f1qj8f1/1628522400000/14868359234857924294/14868359234857924294/1B-g2X_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9-d'
+                ],
+                scenarios: [
+                    { name: 'Monitoreo Integral 1 Bomba No Sumergible', cost: 3679, details: 'Monitoreo de consumo, temperatura, vibración y presión de descarga.' },
+                    { name: 'Monitoreo Integral 2 Bombas No Sumergibles', cost: 4981, details: 'Monitoreo completo para un par de bombas de superficie.' },
+                    { name: 'Monitoreo 1 Bomba Sumergible (con presión)', cost: 3129, details: 'Monitoreo de consumo y presión, ideal para bombas sumergibles.' },
+                    { name: 'Monitoreo 2 Bombas Sumergibles (con presión)', cost: 3560, details: 'Supervisión de un par de bombas sumergibles desde una interfaz.' },
+                    { name: 'Monitoreo Consumo 1 Bomba Sumergible', cost: 2818, details: 'Monitoreo de consumo de corriente, ideal para aguas residuales.' },
+                    { name: 'Monitoreo Consumo 2 Bombas Sumergibles', cost: 2854, details: 'Supervisión de consumo para un par de bombas de aguas negras.' }
+                ]
+            },
+            {
+                id: 'iluminacion',
+                title: 'Sistema de Iluminación Exterior',
+                description: 'Control centralizado para la iluminación de áreas comunes, canchas y zonas perimetrales, permitiendo una reducción significativa del consumo eléctrico y una mejora en la seguridad y ambiente del club.',
+                functionalities: [
+                    'Encender y apagar hasta 10 circuitos de forma remota.',
+                    'Crear horarios y calendarios automáticos.',
+                    'Visualizar el estado ON/OFF de cada circuito.',
+                    'Agrupar circuitos para control simultáneo.',
+                    'Integrar el control con otros sistemas.'
+                ],
+                images: [],
+                scenarios: [
+                    { name: 'M&C de Iluminación para 10 Circuitos', cost: 5657, details: 'Gestión de hasta 10 circuitos distintos, ideal para áreas extensas.' },
+                    { name: 'Control de Iluminación para 5 Circuitos', cost: 3541, details: 'Solución compacta para gestionar una zona específica como una cancha o fachada.' }
+                ]
+            },
+            {
+                id: 'plantas_electricas',
+                title: 'Plantas Eléctricas',
+                description: 'Asegura el correcto funcionamiento y el estado en tiempo real de los generadores (1 de 600 KVA y 2 de 300 KVA) para garantizar la continuidad operativa del club ante fallas del suministro principal.',
+                functionalities: [
+                    'Visualizar estado del generador (encendido/apagado/falla).',
+                    'Monitorear parámetros eléctricos (voltaje, corriente, frecuencia).',
+                    'Recibir alarmas críticas del generador.',
+                    'Registrar historial de arranques y horas de funcionamiento.',
+                    'Verificar el correcto funcionamiento de la transferencia.'
+                ],
+                images: [
+                    'https://doc-0g-4o-docs.googleusercontent.com/docs/securesc/s8g5o81k2k5gqj5g8f1qj8f1qj8f1qj8/n5b2o8j2k5gqj8f1qj8f1qj8f1qj8f1/1628522400000/14868359234857924294/14868359234857924294/1B-g2X_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9Y_9-d'
+                ],
+                scenarios: [
+                    { name: 'Monitoreo por Integración Modbus RTU', cost: 3635, details: 'Integración directa con el panel de control del generador para leer múltiples variables. Incluye medición de combustible externo.' },
+                    { name: 'Monitoreo sin Módulo de Comunicación', cost: 6228, details: 'Para generadores sin puerto Modbus, se instala un analizador de redes dedicado. Incluye medición de combustible.' }
+                ]
+            },
+            {
+                id: 'tableros_electricos',
+                title: 'Tableros Eléctricos Principales',
+                description: 'Proporciona una visibilidad total del perfil de consumo energético del club mediante la instalación de un analizador de redes en un tablero principal para una gestión eficaz y reducción de costos.',
+                functionalities: [
+                    'Visualizar consumo (kW) y energía acumulada (kWh) en tiempo real.',
+                    'Generar reportes históricos y gráficos de consumo.',
+                    'Analizar parámetros de calidad de energía (voltaje, factor de potencia).',
+                    'Establecer alarmas por bajo factor de potencia o picos de demanda.',
+                    'Exportar datos para análisis detallados.'
+                ],
+                images: [],
+                scenarios: [
+                    { name: 'Monitoreo de Tablero Principal', cost: 5489, details: 'Instalación de un analizador de redes para una visión completa del consumo y calidad de la energía en ese punto.' }
+                ]
+            }
+        ];
+
+        function formatCurrency(value) {
+            return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(value);
+        }
+
+        function createSystemSection(system) {
+            const section = document.createElement('section');
+            section.id = system.id;
+            section.className = 'mb-12';
+
+            let imagesHTML = '';
+            if (system.images.length > 0) {
+                imagesHTML = `<div class="grid grid-cols-2 md:grid-cols-3 gap-4 mb-6">
+                    ${system.images.map(src => `<img src="${src}" alt="Imagen de ${system.title}" class="rounded-lg shadow-md object-cover w-full h-40 cursor-pointer" onclick="showImageModal('${src}')">`).join('')}
+                </div>`;
+            }
+
+            let scenariosHTML = system.scenarios.map((scenario, index) => `
+                <div class="border-t border-gray-200 p-4">
+                    <label class="flex items-start">
+                        <input type="radio" name="scenario_${system.id}" class="mt-1 h-5 w-5 text-blue-600 border-gray-300 focus:ring-blue-500" value="${scenario.cost}" data-name="${scenario.name}">
+                        <div class="ml-4">
+                            <span class="font-semibold text-gray-800">${scenario.name}</span>
+                            <p class="text-sm text-gray-600">${scenario.details}</p>
+                            <p class="text-lg font-bold text-blue-700 mt-1">${formatCurrency(scenario.cost)}</p>
+                        </div>
+                    </label>
+                </div>
+            `).join('');
+
+            section.innerHTML = `
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <h3 class="text-2xl font-bold text-blue-700 mb-4 border-b-2 border-blue-200 pb-2">${system.title}</h3>
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                        <div>
+                            <p class="mb-4 text-gray-700">${system.description}</p>
+                            <h4 class="font-semibold text-lg text-blue-600 mb-2">Funcionalidades Clave</h4>
+                            <ul class="list-disc list-inside space-y-1 text-gray-600">
+                                ${system.functionalities.map(f => `<li>${f}</li>`).join('')}
+                            </ul>
+                            ${imagesHTML}
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-lg text-blue-600 mb-2">Escenarios de Inversión</h4>
+                            <div class="border rounded-lg bg-gray-50" id="table_${system.id}">
+                                <div class="p-4 bg-gray-100 rounded-t-lg">
+                                    <p class="font-bold">Seleccione una opción:</p>
+                                </div>
+                                ${scenariosHTML}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+            return section;
+        }
+
+        function createCalculatorOption(system) {
+            const container = document.createElement('div');
+            container.className = 'p-4 border rounded-lg';
+            
+            const optionsHTML = system.scenarios.map((scenario, index) => `
+                <option value="${scenario.cost}">${scenario.name} - ${formatCurrency(scenario.cost)}</option>
+            `).join('');
+
+            container.innerHTML = `
+                <label for="calc_${system.id}" class="block text-lg font-medium text-gray-800">${system.title}</label>
+                <select id="calc_${system.id}" name="calc_${system.id}" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm rounded-md" onchange="updateTotalCost()">
+                    <option value="0">No incluir</option>
+                    ${optionsHTML}
+                </select>
+            `;
+            return container;
+        }
+
+        function updateTotalCost() {
+            let total = 0;
+            systemsData.forEach(system => {
+                const select = document.getElementById(`calc_${system.id}`);
+                if (select) {
+                    total += parseFloat(select.value);
+                }
+            });
+            document.getElementById('total-cost-display').textContent = formatCurrency(total);
+        }
+
+        const systemsContainer = document.getElementById('sistemas');
+        const calculatorContainer = document.getElementById('calculator-container');
+        systemsData.forEach(system => {
+            systemsContainer.appendChild(createSystemSection(system));
+            calculatorContainer.appendChild(createCalculatorOption(system));
+        });
+        
+        // Tab switching logic
+        function openTab(event, tabName) {
+            let i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tab");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(tabName).style.display = "block";
+            event.currentTarget.className += " active";
+        }
+        
+        // Image Modal Logic
+        function showImageModal(src) {
+            document.getElementById('modalImage').src = src;
+            document.getElementById('imageModal').classList.remove('hidden');
+        }
+
+    </script>
+</body>
+</html>
