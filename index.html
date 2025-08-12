@@ -503,7 +503,9 @@
         function generatePDF() {
             const { jsPDF } = window.jspdf;
             const doc = new jsPDF();
-            const logoElement = document.getElementById('innotica-logo');
+            // Crea un nuevo elemento de imagen en memoria solo para el PDF
+            const logoElement = new Image();
+            logoElement.src = 'IMG/LogoInnotica.png'; // <-- ¡Aquí pones el nombre de tu nuevo logo!
 
             imageToBase64(logoElement, (logoData) => {
                 // --- Document Header ---
