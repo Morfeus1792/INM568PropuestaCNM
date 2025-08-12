@@ -6,6 +6,9 @@
     <title>Propuesta Integral de Monitoreo y Control - Club Náutico de Maracaibo</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- jsPDF Libraries for PDF Generation -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.23/jspdf.plugin.autotable.min.js"></script>
     <style>
         body {
             font-family: 'Inter', sans-serif;
@@ -18,7 +21,7 @@
         }
         .tab.active {
             border-color: #3b82f6;
-            color: #3b82f6;
+            color: #63AD20;
             font-weight: 600;
         }
     </style>
@@ -29,7 +32,7 @@
     <header class="bg-white shadow-md">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
             <div class="flex items-center space-x-4">
-                <img src="IMG/LogoInnotica.png" onerror="this.onerror=null;this.src='https://placehold.co/100x40/000000/ffffff?text=Innotica'" class="h-10">
+                <img id="innotica-logo" src="IMG/innotica_seleccionada_MANUAL-15.png" onerror="this.onerror=null;this.src='https://placehold.co/100x40/000000/ffffff?text=Innotica'" class="h-10">
                 <img src="IMG/Captura de pantalla 2025-08-11 180658.png" onerror="this.onerror=null;this.src='https://placehold.co/100x40/003366/ffffff?text=Club+Nautico'" class="h-12">
             </div>
             <h1 class="text-xl md:text-3xl font-bold text-blue-800 text-right">Propuesta de Monitoreo y Control</h1>
@@ -46,34 +49,7 @@
             </p>
         </section>
 
-        <!-- Audio Notes Section -->
-        <section id="audio-notes" class="mb-12 bg-white p-6 rounded-lg shadow-lg">
-            <h2 class="text-2xl font-bold text-blue-700 mb-4 border-b-2 border-blue-200 pb-2">Notas de Audio y Apuntes Visuales</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div class="p-4 border rounded-lg bg-gray-50">
-                    <h3 class="font-semibold mb-2 text-gray-700">Audio 1: Detalles de Equipos</h3>
-                    <audio controls class="w-full">
-                        <source src="IMG/WhatsApp Ptt 2025-08-06 at 4.31.52 PM.ogg" type="audio/ogg">
-                        Tu navegador no soporta el elemento de audio.
-                    </audio>
-                </div>
-                <div class="p-4 border rounded-lg bg-gray-50">
-                    <h3 class="font-semibold mb-2 text-gray-700">Audio 2: Consideraciones Adicionales</h3>
-                    <audio controls class="w-full">
-                        <source src="IMG/WhatsApp Ptt 2025-08-06 at 4.53.54 PM.ogg" type="audio/ogg">
-                        Tu navegador no soporta el elemento de audio.
-                    </audio>
-                </div>
-                 <div class="p-4 border rounded-lg bg-gray-50">
-                    <h3 class="font-semibold mb-2 text-gray-700">Apuntes Visuales</h3>
-                    <div class="flex space-x-2">
-                        <img src="IMG/WhatsApp Image 2025-08-06 at 4.28.32 PM.jpeg" class="w-1/2 rounded-md shadow-sm cursor-pointer" onclick="showImageModal(this.src)">
-                        <img src="IMG/WhatsApp Image 2025-08-06 at 4.28.06 PM.jpeg" class="w-1/2 rounded-md shadow-sm cursor-pointer" onclick="showImageModal(this.src)">
-                    </div>
-                </div>
-            </div>
-        </section>
-
+      
         <!-- Tabs for Navigation -->
         <div class="mb-8">
             <div class="border-b border-gray-200">
@@ -100,13 +76,18 @@
         <div id="calculadora" class="tab-content">
             <section class="bg-white p-6 rounded-lg shadow-lg">
                 <h2 class="text-2xl font-bold text-blue-700 mb-2">Calculadora de Inversión Total</h2>
-                <p class="mb-6 text-gray-600">Seleccione un escenario de inversión para cada sistema. El costo total se actualizará automáticamente. Puede omitir sistemas si no desea incluirlos en el cálculo inicial.</p>
+                <p class="mb-6 text-gray-600">Seleccione un escenario de inversión para cada sistema y ajuste la cantidad si es necesario. El costo total se actualizará automáticamente.</p>
                 <div id="calculator-container" class="space-y-6">
                     <!-- Calculator options will be injected here -->
                 </div>
-                <div class="mt-8 pt-6 border-t-2 border-dashed border-blue-300 bg-blue-50 p-6 rounded-lg text-right">
-                    <span class="text-xl font-medium text-gray-700">Inversión Total Estimada:</span>
-                    <span id="total-cost-display" class="text-3xl font-bold text-blue-800 ml-4">$0.00</span>
+                <div class="mt-8 pt-6 border-t-2 border-dashed border-blue-300 bg-blue-50 p-6 rounded-lg flex justify-end items-center">
+                    <div>
+                        <span class="text-xl font-medium text-gray-700">Inversión Total Estimada:</span>
+                        <span id="total-cost-display" class="text-3xl font-bold text-blue-800 ml-4">$0.00</span>
+                    </div>
+                    <button onclick="generatePDF()" class="ml-6 px-6 py-3 bg-green-600 text-white font-semibold rounded-lg shadow-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-75">
+                        Descargar Cotización (PDF)
+                    </button>
                 </div>
             </section>
         </div>
@@ -241,12 +222,14 @@
                     'Recibir alertas por fallos o desviaciones de rendimiento.'
                 ],
                 images: [
-                    'IMG/Captura de pantalla 2025-08-11 165810.png'
+                    'IMG/Captura de pantalla 2025-08-11 165836.png',
+                    'IMG/Captura de pantalla 2025-08-11 165957.png',
+                    'IMG/Captura de pantalla 2025-08-11 170010.png',
                 ],
                 scenarios: [
-                    { name: 'M&C de 1 equipo desde tablero', cost: 3651, details: 'Solución robusta para equipos sin termostato, con controlador en tablero y sensores en ductos.' },
-                    { name: 'M&C con termostato-controlador', cost: 2725, details: 'Ideal para reemplazar termostatos existentes, consolidando control y sensórica en un dispositivo de pared.' },
-                    { name: 'M&C de 5 equipos', cost: 11081, details: 'Gestiona 5 equipos idénticos y cercanos con un controlador modular, optimizando costos por economía de escala.' }
+                    { name: 'Monitoreo y control de 1 equipo desde tablero', cost: 3651, details: 'Solución robusta para equipos sin termostato, con controlador en tablero y sensores en ductos.' },
+                    { name: 'Monitoreo y control con termostato-controlador', cost: 2725, details: 'Ideal para reemplazar termostatos existentes, consolidando control y sensórica en un dispositivo de pared.' },
+                    { name: 'Monitoreo y control de 5 equipos', cost: 11081, details: 'Gestiona 5 equipos idénticos y cercanos con un controlador modular, optimizando costos por economía de escala.' }
                 ]
             },
             {
@@ -261,7 +244,7 @@
                     'Controlar remotamente las bombas incluidas.'
                 ],
                 images: [
-                    'IMG/Captura de pantalla 2025-08-11 165836.png'
+                    'IMG/Captura de pantalla 2025-08-11 170024.png'
                 ],
                 scenarios: [
                     { name: 'Monitoreo Integral 1 Bomba No Sumergible', cost: 3679, details: 'Monitoreo de consumo, temperatura, vibración y presión de descarga.' },
@@ -285,8 +268,8 @@
                 ],
                 images: [],
                 scenarios: [
-                    { name: 'M&C de Iluminación para 10 Circuitos', cost: 5657, details: 'Gestión de hasta 10 circuitos distintos, ideal para áreas extensas.' },
-                    { name: 'Control de Iluminación para 5 Circuitos', cost: 3541, details: 'Solución compacta para gestionar una zona específica como una cancha o fachada.' }
+                    { name: 'Monitoreo y control de Iluminación para 10 Circuitos', cost: 5657, details: 'Gestión de hasta 10 circuitos distintos, ideal para áreas extensas.' },
+                    { name: 'Monitoreo y control de Iluminación para 5 Circuitos', cost: 3541, details: 'Solución compacta para gestionar una zona específica como una cancha o fachada.' }
                 ]
             },
             {
@@ -301,7 +284,7 @@
                     'Verificar el correcto funcionamiento de la transferencia.'
                 ],
                 images: [
-                    'IMG/Captura de pantalla 2025-08-11 165957.png'
+                    'IMG/Captura de pantalla 2025-08-11 170046.png'
                 ],
                 scenarios: [
                     { name: 'Monitoreo por Integración Modbus RTU', cost: 3635, details: 'Integración directa con el panel de control del generador para leer múltiples variables. Incluye medición de combustible externo.' },
@@ -337,8 +320,8 @@
 
             let imagesHTML = '';
             if (system.images.length > 0) {
-                imagesHTML = `<div class="grid grid-cols-2 md:grid-cols-3 gap-4 mb-6">
-                    ${system.images.map(src => `<img src="${src}" alt="Imagen de ${system.title}" class="rounded-lg shadow-md object-cover w-full h-40 cursor-pointer" onclick="showImageModal('${src}')">`).join('')}
+                imagesHTML = `<div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+                    ${system.images.map(src => `<img src="${src}" alt="Imagen de ${system.title}" class="rounded-lg shadow-md object-cover w-full h-32 cursor-pointer" onclick="showImageModal('${src}')">`).join('')}
                 </div>`;
             }
 
@@ -386,26 +369,86 @@
             const container = document.createElement('div');
             container.className = 'p-4 border rounded-lg';
             
-            const optionsHTML = system.scenarios.map((scenario, index) => `
-                <option value="${scenario.cost}">${scenario.name} - ${formatCurrency(scenario.cost)}</option>
+            const optionsHTML = system.scenarios.map((scenario) => `
+                <option value="${scenario.cost}" data-name="${scenario.name}">${scenario.name} - ${formatCurrency(scenario.cost)}</option>
             `).join('');
 
-            container.innerHTML = `
-                <label for="calc_${system.id}" class="block text-lg font-medium text-gray-800">${system.title}</label>
-                <select id="calc_${system.id}" name="calc_${system.id}" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm rounded-md" onchange="updateTotalCost()">
-                    <option value="0">No incluir</option>
-                    ${optionsHTML}
-                </select>
-            `;
+            const systemsWithMultipleSolutions = ['climatizacion', 'bombas_general', 'iluminacion', 'plantas_electricas', 'tableros_electricos'];
+            
+            if (systemsWithMultipleSolutions.includes(system.id)) {
+                container.innerHTML = `
+                    <label class="block text-lg font-medium text-gray-800">${system.title}</label>
+                    <div id="calc-rows-${system.id}" class="mt-2 space-y-2"></div>
+                    <button onclick="addSolutionRow('${system.id}')" class="mt-2 px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 text-sm">+ Agregar Solución</button>
+                `;
+            } else {
+                 container.innerHTML = `
+                    <label for="calc_${system.id}" class="block text-lg font-medium text-gray-800">${system.title}</label>
+                    <div class="flex items-end mt-1">
+                        <div class="flex-grow">
+                            <select id="calc_${system.id}" name="calc_${system.id}" class="calc-select-single block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm rounded-md" onchange="updateTotalCost()">
+                                <option value="0">No incluir</option>
+                                ${optionsHTML}
+                            </select>
+                        </div>
+                    </div>
+                `;
+            }
             return container;
+        }
+
+        function addSolutionRow(systemId) {
+            const system = systemsData.find(s => s.id === systemId);
+            if (!system) return;
+
+            const optionsHTML = system.scenarios.map(scenario => `
+                <option value="${scenario.cost}" data-name="${scenario.name}">${scenario.name} - ${formatCurrency(scenario.cost)}</option>
+            `).join('');
+
+            const newRow = document.createElement('div');
+            newRow.className = 'solution-row flex items-center space-x-2 p-2 bg-gray-100 rounded-md';
+            newRow.innerHTML = `
+                <div class="flex-grow">
+                    <select class="calc-select block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm rounded-md" onchange="updateTotalCost()">
+                        <option value="0" data-name="No seleccionado">Seleccione una solución</option>
+                        ${optionsHTML}
+                    </select>
+                </div>
+                <div>
+                    <label class="text-sm font-medium text-gray-700">Cant.</label>
+                    <input type="number" value="1" min="1" class="calc-qty mt-1 block w-16 text-center border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm rounded-md" oninput="updateTotalCost()">
+                </div>
+                <button onclick="removeSolutionRow(this)" class="px-2 py-1 bg-red-500 text-white rounded-md hover:bg-red-600 text-xs">X</button>
+            `;
+            
+            document.getElementById(`calc-rows-${systemId}`).appendChild(newRow);
+            updateTotalCost();
+        }
+
+        function removeSolutionRow(button) {
+            button.parentElement.remove();
+            updateTotalCost();
         }
 
         function updateTotalCost() {
             let total = 0;
+            const systemsWithMultipleSolutions = ['climatizacion', 'bombas_general', 'iluminacion', 'plantas_electricas', 'tableros_electricos'];
+
             systemsData.forEach(system => {
-                const select = document.getElementById(`calc_${system.id}`);
-                if (select) {
-                    total += parseFloat(select.value);
+                if (systemsWithMultipleSolutions.includes(system.id)) {
+                    const rows = document.querySelectorAll(`#calc-rows-${system.id} .solution-row`);
+                    rows.forEach(row => {
+                        const select = row.querySelector('.calc-select');
+                        const quantityInput = row.querySelector('.calc-qty');
+                        const cost = parseFloat(select.value) || 0;
+                        const quantity = parseInt(quantityInput.value) || 0;
+                        total += cost * quantity;
+                    });
+                } else {
+                    const select = document.getElementById(`calc_${system.id}`);
+                    if (select) {
+                        total += parseFloat(select.value);
+                    }
                 }
             });
             document.getElementById('total-cost-display').textContent = formatCurrency(total);
@@ -418,7 +461,6 @@
             calculatorContainer.appendChild(createCalculatorOption(system));
         });
         
-        // Tab switching logic
         function openTab(event, tabName) {
             let i, tabcontent, tablinks;
             tabcontent = document.getElementsByClassName("tab-content");
@@ -433,10 +475,133 @@
             event.currentTarget.className += " active";
         }
         
-        // Image Modal Logic
         function showImageModal(src) {
             document.getElementById('modalImage').src = src;
             document.getElementById('imageModal').classList.remove('hidden');
+        }
+
+        // --- PDF Generation Logic ---
+        function imageToBase64(imgElement, callback) {
+            const img = new Image();
+            img.crossOrigin = 'Anonymous';
+            img.onload = () => {
+                const canvas = document.createElement('canvas');
+                canvas.width = img.width;
+                canvas.height = img.height;
+                const ctx = canvas.getContext('2d');
+                ctx.drawImage(img, 0, 0);
+                const dataURL = canvas.toDataURL('image/png');
+                callback(dataURL);
+            };
+            img.onerror = () => {
+                console.error("Could not load image for PDF conversion.");
+                callback(null); // Handle error
+            };
+            img.src = imgElement.src;
+        }
+
+        function generatePDF() {
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+            const logoElement = document.getElementById('innotica-logo');
+
+            imageToBase64(logoElement, (logoData) => {
+                // --- Document Header ---
+                if (logoData) {
+                    doc.addImage(logoData, 'PNG', 14, 12, 40, 15);
+                }
+                doc.setFontSize(18);
+                doc.text('COTIZACIÓN', 145, 22);
+                doc.setFontSize(10);
+                doc.text('Fecha: 09 de agosto de 2025', 145, 30);
+                doc.text('Cotización N°: IS_INM_568', 145, 35);
+
+                doc.setLineWidth(0.5);
+                doc.line(14, 45, 196, 45);
+
+                doc.setFontSize(12);
+                doc.setFont(undefined, 'bold');
+                doc.text('Cliente:', 14, 55);
+                doc.setFont(undefined, 'normal');
+                doc.text('Club Náutico de Maracaibo', 14, 60);
+                
+                // --- Table Data ---
+                const tableData = [];
+                let grandTotal = 0;
+
+                systemsData.forEach(system => {
+                    const systemsWithMultipleSolutions = ['climatizacion', 'bombas_general', 'iluminacion', 'plantas_electricas', 'tableros_electricos'];
+                    if (systemsWithMultipleSolutions.includes(system.id)) {
+                        const rows = document.querySelectorAll(`#calc-rows-${system.id} .solution-row`);
+                        rows.forEach(row => {
+                            const select = row.querySelector('.calc-select');
+                            const quantityInput = row.querySelector('.calc-qty');
+                            const cost = parseFloat(select.value) || 0;
+                            const quantity = parseInt(quantityInput.value) || 0;
+                            if (cost > 0 && quantity > 0) {
+                                const solutionName = select.options[select.selectedIndex].getAttribute('data-name');
+                                const subtotal = cost * quantity;
+                                tableData.push([system.title, solutionName, quantity, formatCurrency(cost), formatCurrency(subtotal)]);
+                                grandTotal += subtotal;
+                            }
+                        });
+                    } else {
+                        const select = document.getElementById(`calc_${system.id}`);
+                        if (select && select.value > 0) {
+                            const cost = parseFloat(select.value);
+                            const solutionName = select.options[select.selectedIndex].getAttribute('data-name');
+                            tableData.push([system.title, solutionName, 1, formatCurrency(cost), formatCurrency(cost)]);
+                            grandTotal += cost;
+                        }
+                    }
+                });
+
+                // --- AutoTable ---
+                doc.autoTable({
+                    startY: 75,
+                    head: [['Sistema', 'Solución Seleccionada', 'Cantidad', 'Precio Unitario', 'Subtotal']],
+                    body: tableData,
+                    theme: 'grid',
+                    headStyles: { fillColor: [22, 160, 133] },
+                    foot: [['', '', '', 'Total:', formatCurrency(grandTotal)]],
+                    footStyles: { fontStyle: 'bold', fontSize: 12, halign: 'right' },
+                    didDrawPage: function (data) {
+                        // Footer
+                        doc.setFontSize(8);
+                        doc.text('Página ' + doc.internal.getNumberOfPages(), data.settings.margin.left, doc.internal.pageSize.height - 10);
+                    }
+                });
+                
+                let finalY = doc.lastAutoTable.finalY || 80;
+
+                // --- Terms and Conditions ---
+                doc.setFontSize(10);
+                doc.setFont(undefined, 'bold');
+                doc.text('Condiciones del Servicio:', 14, finalY + 15);
+                
+                doc.setFontSize(9);
+                doc.setFont(undefined, 'normal');
+                const conditionsText = `
+Condiciones de Pago:
+- 70% del monto cotizado para iniciar labores.
+- 20% al tener los equipos en el laboratorio de Innotica.
+- 10% final al culminar la obra.
+
+Garantías, Mantenimiento y Operación:
+- La adquisición de cada solución cotizada incluye seis meses de operación y mantenimiento.
+- Se realizará por lo menos una reunión mensual para verificar el correcto funcionamiento.
+
+Plazo de Entrega:
+- El plazo de entrega mínimo es de cuatro (4) meses contados a partir del pago inicial.
+
+Validez de la Oferta:
+- 30 días continuos, contados desde la fecha de este documento.
+                `;
+                doc.text(conditionsText, 14, finalY + 20);
+
+                // --- Save PDF ---
+                doc.save('Cotizacion_Innotica_Club_Nautico.pdf');
+            });
         }
 
     </script>
